@@ -19,30 +19,28 @@ public class StudentDataTest {
         this.studentData=null;
     }
     @Test
-    public void checkIftheGivenNumberOfStudentShouldBeValid(){
-        String actualresult =studentData.getSudentData(0);
-        assertEquals("enter correct positive value",actualresult);
+    public void givenStudentsGradeShouldBeInValidRange() throws Exception {
+        //Arrange
+        boolean expected=true,actual=false;
+        int[] expectedValue=new int[3];
+        expectedValue[0]=81;
+        expectedValue[1]=65;
+        expectedValue[2]=98;
+        int a[]=new int[4];//declaration and instantiation
+        a[0]=86;//initialization
+        a[1]=65;
+        a[2]=98;
+        a[3]=77;
+
+        //Act
+        int[] actualValue=studentData.isGrades(a,4);
+        if (expectedValue[0]==actualValue[0]&&expectedValue[1]==actualValue[1]&&expectedValue[2]==actualValue[2])
+        {
+            actual=true;
+        }
+        //Assert
+        assertEquals(expected, actual);
+        assertNotNull(actualValue);
 
     }
-    @Test
-    public void checkIfTheGivenArrayShouldNotBeEqualToNumberOfStudent(){
-        String actualresult = studentData.getStudentData(-1);
-        assertEquals("enter positive value",actualresult);
-    }
-    @Test
-    public void checkIfMarksSHouldNotBeOutOfLimit(){
-        String actualresult = studentData.getStudentData(101);
-        assertEquals("enter value within the limit",actualresult);
-    }
-    @Test
-    public void checkIfMarksSHouldNotBeBelowOfLimit(){
-        String actualresult= studentData.getStudentData(-1);
-        assertNotEquals("enter value above the limit",actualresult);
-    }
-    @Test
-    public void checkIfMarksShouldBeAboveMinimumLimit(){
-        String actualresult= studentData.getMin();
-        assertEquals("",actualresult);
-    }
-
 }

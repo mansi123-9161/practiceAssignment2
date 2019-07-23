@@ -20,22 +20,16 @@ public class GetFileNameAndDataTest {
         this.getFileNameAndData=null;
     }
     @Test
-    public void givenFolderNameShouldStartWithValidValue()
-    {
-        String[] actualresult =getFileNameAndData.getFileData("Documents");
-        assertEquals("file name is correct",actualresult);
-    }
-    @Test
-    public void givenFileNameShouldNotStartWithValidValue()
-    {
-        String[] actualresult =getFileNameAndData.getFileData("@java");
-        assertEquals("file name is not correct",actualresult);
-    }
-    @Test
-    public void givenFileNameShouldHaveAProperExtenssion()
-    {
-        String[] actualresult =getFileNameAndData.getFileData(".exe");
-        assertEquals("file name extension is correct",actualresult);
+    public void test4() throws Exception {
+        //Arrange
+        String expectedValue="THIS IS TEST FILE";
+
+        //Act
+        String actualValue=getFileNameAndData.contentPrintTextFile("file.txt");
+        //Assert
+        assertEquals(expectedValue, actualValue);
+        assertNotNull(actualValue);
+
     }
 
 }

@@ -1,9 +1,12 @@
 package com.stackroute.pe2;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class evenNumberTest {
-    private EvenNumber evenNumber;
+public class EvenNumberTest {
+    EvenNumber evenNumber;
 
     @Before
     public void setup()
@@ -26,7 +29,7 @@ public class evenNumberTest {
     public void givenNumberShouldReturnEvenNumber()
     {
         //act
-        boolean actualResults=evenNumber.isEven(20);
+        boolean actualResults=evenNumber.isEvenNumber(20);
         boolean expectedResult=true;
         //assert
         assertEquals(expectedResult,actualResults);
@@ -36,17 +39,11 @@ public class evenNumberTest {
     //this testcase check for given number is not a EvenNumber
     public void givenNumberShouldNotReturnEvenNumber()
     {    //act
-        boolean actualResult=evenNumber.isEven(21);
+        boolean actualResult=evenNumber.isEvenNumber(21);
         boolean expectedResult=true;
         //assert
         assertNotEquals(expectedResult,actualResult);
 
     }
-    @Test
-    //this testcase check for ErrorMessege if given input is wrong
-    public void givenNumberShouldReturnErrorMessage()
-    {
-        String actualResults=evenNumber.isEven(" ");
-        assertEquals("enter correct input",actualResults);
-    }
+
 }
